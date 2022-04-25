@@ -1,0 +1,17 @@
+exports.hoiliDateList=(req,res)=>{
+    HolidayModel.getHolidayByDate((err,holiinfo)=>{
+        if(err)
+        res.send(err)
+       
+        
+        MyHoliDay=[]
+        for(var i=0;i<holiinfo.rows.length;i++)
+        {
+          var  date = holiinfo.rows[i]["date"];
+          MyHoliDay.push(date)
+        }
+        console.log(isValidDate.isDateValid(req.params.date,MyHoliDay))
+        
+        
+    })
+}
